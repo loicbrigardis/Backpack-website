@@ -5,7 +5,7 @@
 @import "compass/reset";
 
 body {
-  background-color: #393939;
+  background-color: #f7ebd7;
 }
 /* main colors */
 $light_grey: #f8ebdb;
@@ -23,7 +23,7 @@ $secondary_font: 'Teko', sans-serif;
 $main_width: 960px;
 /* Header */
 .container {
-  //overflow: hidden;
+
 }
 
 video {
@@ -53,7 +53,7 @@ video {
   overflow: hidden;
 }
 
-.header-background h1 {
+.welcome {
   display: block;
   height: 300px;
   text-align: center;
@@ -140,6 +140,18 @@ video {
   top: 0;
   left: auto;
   right: 0;
+
+
+  &:hover {
+      & span:nth-child(1){
+        transform: translateY(-5px);
+        transition: 0.5s ease-in-out;
+      }
+      & span:nth-child(3){
+        transform: translateY(5px);
+        transition: 0.5s ease-in-out;
+      }
+  }
 }
 
 .nav-mobile-btn span {
@@ -148,7 +160,10 @@ video {
   display: block;
   border-radius: 5px;
   background-color: #33223d;
+  box-shadow: 1px 1px white;
   margin: 2px;
+
+
 }
 
 .nav-mobile {
@@ -277,14 +292,47 @@ video {
   box-shadow: 0 28px 5px -28px $text_price;
 }
 /* Body articles */
+
+.article-selected-background {
+  height: 0;
+  position: relative;
+  z-index: 0;
+  transition: all 600ms ease-in-out;
+}
+
 .article-selected {
-  max-width: $main_width;
   background-color: $dark_purple;
+  height: auto;
+  max-width: $main_width;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
   justify-content: center;
-  margin: 15px auto;
+  position: relative;
+  margin: 0 auto;
+  top: 0;
+  left: 0;
+}
+
+.article-selected-close {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  margin: 10px 30px 0 0;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  background-color: $text_extra_footer;
+  border-radius: 50%
+}
+
+.article-selected-close:hover {
+  background-color: white;
+  color: $text_extra_footer;
 }
 
 .article-select-focus {
@@ -294,6 +342,7 @@ video {
   border-radius: 10px;
   margin: 30px;
 }
+
 
 .article-select-desc {
   max-width: 450px;
@@ -336,6 +385,13 @@ video {
   text-transform: uppercase;
   font-family: $secondary_font;
   color: $text_body;
+  cursor: pointer;
+}
+
+.article:hover {
+  background-image: url(../images/body/cadre.png);
+  background-repeat: no-repeat;
+  background-position: center -10px;
 }
 
 .article .price {
@@ -549,6 +605,7 @@ video {
   background-size: 60px 60px;
 }
 @media screen and (min-width: 727px) and (max-width: 977px) {
+
   video {
     display: none;
   }
@@ -617,6 +674,7 @@ video {
   }
 }
 @media screen and (min-width: 560px) and (max-width: 727px) {
+
   video {
     display: none;
   }
@@ -651,6 +709,7 @@ video {
   }
 }
 @media screen and (min-width: 320px) and (max-width: 560px) {
+
   video {
     display: none;
   }
@@ -667,6 +726,7 @@ video {
   .nav-mobile-btn {
     display: flex;
   }
+
 
   .nav-mobile-btn.open span:nth-child(1) {
     transform: translateY(14px) rotate(135deg);

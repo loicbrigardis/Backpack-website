@@ -26,27 +26,63 @@ $(document).ready(function() {
 
     $(window).scroll(function() {
 
-      var wScroll = $(this).scrollTop();
+        var wScroll = $(this).scrollTop();
 
-      if (wScroll < 300) {
-        var zoom = (1 + (wScroll / 800));
+        if (wScroll < 300) {
+            var zoom = (1 + (wScroll / 800));
 
-        $mountain02.css({
-          'transform': 'translate( '+ (-250 + wScroll / 10) +'px , 0px)'
+            $mountain02.css({
+                'transform': 'translate( ' + (-250 + wScroll / 10) + 'px , 0px)'
+            });
+
+            $mountain03.css({
+                'transform': 'translate( -250px , ' + -wScroll / 10 + 'px)'
+            });
+
+            $welcome.css({
+                'transform': 'translateX(-70%) scale(' + zoom + ')'
+            });
+
+        }
+
+    });
+
+
+    var $close_btn = $('.article-selected-close');
+
+    var $article = $('.article');
+
+    $winSelectArt = $('.article-selected-background');
+
+
+    $(window).resize(function() {
+        $winSelectArt.css({
+            'height': '0'
+        });
+    });
+
+    $article.click(function() {
+        var $heightwinSelectArt = $('.article-selected').height();
+
+        $winSelectArt.css({
+            'height': '' + $heightwinSelectArt + '',
         });
 
-        $mountain03.css({
-          'transform': 'translate( -250px , '+ - wScroll / 10 +'px)'
+        var page = $('.article-selected-background'); // Page cible
+        var speed = 750; // Durée de l'animation (en ms)
+
+        $('html, body').animate({
+            scrollTop: $(page).offset().top
+        }, speed); // Go
+        //return false;
+
+
+    });
+
+    $close_btn.click(function() {
+        $winSelectArt.css({
+            'height': '0'
         });
-
-        $welcome.css({
-          'transform': 'translateX(-70%) scale('+ zoom +')'
-        });
-
-      }
-
-      console.log(wScroll);
-
     });
 
 

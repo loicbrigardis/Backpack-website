@@ -1,10 +1,38 @@
 $(document).ready(function() {
 
-    var $nav_mobile_btn = $('.nav-mobile-btn'),
-        $nav_mobile = $('.nav-mobile'),
-        $nav_mobile_a = $('.nav-mobile ul li a'),
-        $nav_menu_a = $('.nav ul li a'),
-        $welcome = $('.header-background h1');
+  var $nav_mobile_btn = $('.nav-mobile-btn'),
+      $nav_mobile = $('.nav-mobile'),
+      $nav_mobile_a = $('.nav-mobile ul li a'),
+      $nav_menu_a = $('.nav ul li a'),
+      $welcome = $('.header-background h1'),
+      $mountain02 = $('.mountain02'),
+      $mountain03 = $('.mountain03'),
+      $close_btn = $('.article-selected-close'),
+      $articles = $('.articles');
+      $article = $('.article');
+
+  $.ajax({
+      url: 'data.json',
+      contentType: "application/json; charset=utf-8",
+      dataType: "json",
+      success: function(data) {
+          var $items = $('.articles');
+          for (var i = 0; i < data.articles.length; i++) {
+              var item = data.articles[i];
+              $items.append(`
+              <div class="article">
+                <img src="${item.image}" width="140px" height="140px" alt="${item.altimage}">
+                <p>${item.desc}</p>
+                <div class="price">$${item.price}</div>
+              </div>
+              `);
+          }
+
+      },
+      error: function(err) {
+          console.log("erreur" + err);
+      }
+  });
 
     $nav_mobile_btn.click(function() {
         $(this).toggleClass('open');
@@ -13,16 +41,6 @@ $(document).ready(function() {
 
     toggleActive($nav_menu_a);
     toggleActive($nav_mobile_a);
-
-
-
-
-
-
-
-    var $mountain02 = $('.mountain02');
-    var $mountain03 = $('.mountain03');
-
 
     $(window).scroll(function() {
 
@@ -47,12 +65,7 @@ $(document).ready(function() {
 
     });
 
-
-    var $close_btn = $('.article-selected-close');
-
-    var $article = $('.article');
-
-    $winSelectArt = $('.article-selected-background');
+    var $winSelectArt = $('.article-selected-background');
 
 
     $(window).resize(function() {
@@ -61,7 +74,9 @@ $(document).ready(function() {
         });
     });
 
-    $article.click(function() {
+    $articles.on('click', '.article' ,function(e) {
+        var target = $(this).parent().index()
+        console.log(target);
         var $heightwinSelectArt = $('.article-selected').height();
 
         $winSelectArt.css({
@@ -73,9 +88,9 @@ $(document).ready(function() {
 
         $('html, body').animate({
             scrollTop: $(page).offset().top
-        }, speed); // Go
-        //return false;
+        }, speed);
 
+        //return false;
 
     });
 
@@ -84,14 +99,6 @@ $(document).ready(function() {
             'height': '0'
         });
     });
-
-
-
-
-
-
-
-
 
 });
 

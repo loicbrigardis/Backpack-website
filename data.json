@@ -1,0 +1,17 @@
+{
+    "articles": [{
+        "id": 0,
+        "title": "Hello World",
+        "image": "./assets/images/body/backpack.png",
+        "altimage": "backpack",
+        "desc": "Lorem ipsum",
+        "price": 249
+    }, {
+        "id": 1,
+        "title": "Product 2 ",
+        "image": "./assets/images/body/backpack.png",
+        "altimage": "backpack",
+        "desc": "Lorem ipsum",
+        "price": 219
+    }]
+}

@@ -12,7 +12,9 @@
 
 <body>
   <div class="container">
-
+    <div class="loader-wrap">
+      <div class="loader"></div>
+    </div>
     <video autoplay="true" preload="auto" loop="true" muted="true">
       <source src="./assets/videos/travel.mp4" type="video/mp4" />
     </video>
@@ -54,8 +56,26 @@
 
     <div class="article-selected-background">
       <div class="article-selected">
-        <div class="article-selected-close">×</div>
+        <div class="article-loader">
 
+          <div class="compass"><div class="compass-dir"></div></div>
+        </div>
+        <div class="article-selected-close">×</div>
+        <div class="article-opened">
+          <div class="article-select-focus">
+            <div class="article-photos">
+              <img src="" width="240px" height="240px" alt="">
+            </div>
+          </div>
+          <div class="article-select-desc">
+            <h3>Title</h3>
+            <hr>
+            <p>Article Desc</p>
+            <span class="price">Price</span>
+            <hr>
+            <button type="button" name="button">Add to card</button>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -85,13 +105,7 @@
         </ul>
       </div>
 
-      <div class="articles">
-        <!-- <div class="article">
-          <img src="./assets/images/body/backpack.png" width="140px" height="140px" alt="backpack image">
-          <p>Lorem ipsum dolor sit amet.</p>
-          <div class="price">$249</div>
-        </div> -->
-      </div>
+      <div class="articles"></div>
 
       <div class="article-more">
 
@@ -99,7 +113,8 @@
           <img src="./assets/images/body/blog.png" alt="blog image">
           <div class="blog-link">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            <button type="button" name="button">View blog</button>
+            <hr>
+            <button type="button" name="button" class="orange-button">View blog</button>
           </div>
         </div>
 
@@ -112,8 +127,8 @@
               <span class="price">$199</span>
               <span class="old-price">$249</span>
             </div>
-            <button type="button" name="button">View</button>
-            <button type="button" name="button">Add to card</button>
+            <button type="button" name="button" class="grey-button">View</button>
+            <button type="button" name="button" class="orange-button">Add to card</button>
           </div>
           <div class="art-promo-col2">
             <img src="./assets/images/body/backpack.png" alt="backpack promo">
@@ -136,9 +151,9 @@
         <div class="social-logos">
           <h3>Join us on:</h3>
           <img src="./assets/images/footer/fb-icon.png" alt="" width="25px" height="25px" />
-          <img src="./assets/images/footer/fb-icon.png" alt="" width="25px" height="25px" />
-          <img src="./assets/images/footer/fb-icon.png" alt="" width="25px" height="25px" />
-          <img src="./assets/images/footer/fb-icon.png" alt="" width="25px" height="25px" />
+          <img src="./assets/images/footer/tw-icon.png" alt="" width="25px" height="25px" />
+          <img src="./assets/images/footer/dr-icon.png" alt="" width="25px" height="25px" />
+          <img src="./assets/images/footer/li-icon.png" alt="" width="25px" height="25px" />
         </div>
         <p>Consectetur adipisicing elit.</p>
       </div>
@@ -208,6 +223,7 @@
   </div>
 
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <script src="./assets/js/flexibility.js"></script>
   <script src="./assets/js/main.js"></script>
 </body>
 

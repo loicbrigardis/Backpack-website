@@ -1,17 +1,60 @@
 {
     "articles": [{
         "id": 0,
-        "title": "Hello World",
+        "title": "OSPREY",
         "image": "./assets/images/body/backpack.png",
         "altimage": "backpack",
-        "desc": "Lorem ipsum",
-        "price": 249
+        "desc": "Aether 70 pack",
+        "price": 212
     }, {
         "id": 1,
-        "title": "Product 2 ",
-        "image": "./assets/images/body/backpack.png",
+        "title": "OSPREY ",
+        "image": "./assets/images/body/backpack2.png",
         "altimage": "backpack",
-        "desc": "Lorem ipsum",
+        "desc": "Tempest 40 pack - women's",
+        "price": 155
+    },{
+        "id": 2,
+        "title": "GREGORY",
+        "image": "./assets/images/body/backpack3.png",
+        "altimage": "backpack",
+        "desc": "Baltoro 65 pack",
+        "price": 120
+    },{
+        "id": 3,
+        "title": "OSPREY",
+        "image": "./assets/images/body/backpack4.png",
+        "altimage": "backpack",
+        "desc": "Mira ag 34 hydration pack",
+        "price": 109
+    },{
+        "id": 4,
+        "title": "Gregory",
+        "image": "./assets/images/body/backpack5.png",
+        "altimage": "backpack",
+        "desc": "Baltoro 75 gz pack",
+        "price": 309
+    },{
+        "id": 5,
+        "title": "OSPREY",
+        "image": "./assets/images/body/backpack6.png",
+        "altimage": "backpack",
+        "desc": "Kyte 36 pack - women's",
         "price": 219
+    },{
+        "id": 6,
+        "title": "Deuter",
+        "image": "./assets/images/body/backpack7.png",
+        "altimage": "backpack",
+        "desc": "ACT lite 65 + 10 pack",
+        "price": 229
+    },
+    {
+        "id": 7,
+        "title": "OSPREY ",
+        "image": "./assets/images/body/backpack8.png",
+        "altimage": "backpack",
+        "desc": "ACT FULL 18 + 2 packs",
+        "price": 119
     }]
 }

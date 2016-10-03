@@ -14,6 +14,12 @@ $(document).ready(function() {
 
     $winSelectArt.css('height', '0');
 
+    setTimeout(function () {
+      $('.loader-wrap').fadeOut('slow', function() {
+        $(this).remove();
+      });
+    }, 2500);
+
     $.ajax({
         url: 'data.json',
         contentType: "application/json; charset=utf-8",
@@ -69,11 +75,11 @@ $(document).ready(function() {
     });
 
 
-    // $(window).resize(function() {
-    //     $winSelectArt.css({
-    //         'height': '0'
-    //     });
-    // });
+    $(window).resize(function() {
+        $winSelectArt.css({
+            'height': '0'
+        });
+    });
 
     setTimeout(function() {
 
@@ -87,11 +93,45 @@ $(document).ready(function() {
         var speed = 750; // Durée de l'animation (en ms)
         e.preventDefault();
 
-        $.when($.ajax(getSelectedItem(id))).then(function() {
-
-            itemHeight($winSelectArt, $heightwinSelectArt);
-
+        $winSelectArt.css({
+            'height': '' + $heightwinSelectArt + '',
         });
+
+        $('.article-loader').css('display', 'block').addClass('opened').delay(1400).queue(function(next) {
+            $(this).removeClass("opened").css('display', 'none');
+
+            next();
+        });
+
+        $.ajax({
+                url: 'data.json',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+            })
+            .done(function(data) {
+                var artclicked = data.articles[id];
+
+                $('.article-opened').html(`
+                  <div class="article-select-focus">
+                    <div class="article-photos">
+                      <img src="${artclicked.image}" width="240px" height="240px" alt="${artclicked.altimage}">
+                    </div>
+                  </div>
+                  <div class="article-select-desc">
+                    <h3>${artclicked.title}</h3>
+                    <hr>
+                    <p>${artclicked.desc}</p>
+                    <span class="price">$${artclicked.price}</span>
+                    <hr>
+                    <button type="button" name="button" class="orange-button">Add to card</button>
+                  </div>
+            `);
+
+            })
+            .fail(function() {
+                console.log("error");
+            });
+
 
         $('html, body').animate({
             scrollTop: $(page).offset().top
@@ -112,43 +152,5 @@ function toggleActive($menu) {
     $menu.click(function() {
         $menu.removeClass('active');
         $(this).addClass('active');
-    });
-}
-
-function getSelectedItem(id) {
-    $.ajax({
-            url: 'data.json',
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-        })
-        .done(function(data) {
-            var artclicked = data.articles[id];
-
-            $('.article-selected').append(`
-            <div class="article-select-focus">
-              <div class="article-photos">
-                <img src="${artclicked.image}" width="240px" height="240px" alt="${artclicked.altimage}">
-              </div>
-            </div>
-            <div class="article-select-desc">
-              <h3>${artclicked.title}</h3>
-              <hr>
-              <p>${artclicked.desc}</p>
-              <span class="price">$${artclicked.price}</span>
-              <hr>
-              <button type="button" name="button">Add to card</button>
-            </div>
-      `);
-
-        })
-        .fail(function() {
-            console.log("error");
-        });
-}
-
-
-function itemHeight($winSelectArt, $heightwinSelectArt) {
-    $winSelectArt.css({
-        'height': '' + $heightwinSelectArt + '',
     });
 }

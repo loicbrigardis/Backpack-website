@@ -84,10 +84,6 @@ $(document).ready(function() {
         });
     });
 
-    setTimeout(function() {
-
-    }, 50);
-
     $articles.on('click', '.article', function(e) {
         var target = $(this).parent().index();
         var $heightwinSelectArt = $('.article-selected').height();

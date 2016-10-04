@@ -1,5 +1,8 @@
 $(document).ready(function() {
 
+  flexibility(document.documentElement);
+
+
     var $nav_mobile_btn = $('.nav-mobile-btn'),
         $nav_mobile = $('.nav-mobile'),
         $nav_mobile_a = $('.nav-mobile ul li a'),
@@ -14,10 +17,10 @@ $(document).ready(function() {
 
     $winSelectArt.css('height', '0');
 
-    setTimeout(function () {
-      $('.loader-wrap').fadeOut('slow', function() {
-        $(this).remove();
-      });
+    setTimeout(function() {
+        $('.loader-wrap').fadeOut('slow', function() {
+            $(this).remove();
+        });
     }, 2500);
 
     $.ajax({
